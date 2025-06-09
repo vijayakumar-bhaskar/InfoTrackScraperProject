@@ -7,18 +7,18 @@ namespace InfoTrackScraperProject.Controllers;
 [Route("[controller]")]
 public class ScraperController : ControllerBase
 {
-    private readonly Scraper _scraper;
+    private readonly GoogleResultsScraperService _googleScraperService;
     
     public ScraperController()
     {
-        _scraper = new Scraper();
+        _googleScraperService = new GoogleResultsScraperService();
     }
     
     [HttpGet]
     [Route("search")]
     public IList<int> Get([FromQuery] string query, [FromQuery] string targetUrl)
     {
-        var result = _scraper.ScrapeGoogleSearch(query, targetUrl).Result;
+        var result = _googleScraperService.GetIndicesOfTheTarget(query, targetUrl);
         return result;
     }
 }
