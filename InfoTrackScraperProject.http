@@ -1,0 +1,6 @@
+@InfoTrackScraperProject_HostAddress = http://localhost:5253
+
+GET {{InfoTrackScraperProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
