@@ -7,11 +7,11 @@ namespace InfoTrackScraperProject.Controllers;
 [Route("[controller]")]
 public class ScraperController : ControllerBase
 {
-    private readonly GoogleResultsScraperService _googleScraperService;
+    private readonly IGoogleResultsScraperService _googleScraperService;
     
-    public ScraperController()
+    public ScraperController(IGoogleResultsScraperService googleScraperService)
     {
-        _googleScraperService = new GoogleResultsScraperService();
+        _googleScraperService = googleScraperService;
     }
     
     [HttpGet]

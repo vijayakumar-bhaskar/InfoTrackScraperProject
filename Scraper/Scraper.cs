@@ -4,7 +4,7 @@ using System.Web;
 
 namespace InfoTrackProject;
 
-public class Scraper
+public class Scraper : IScraper
 {
 
     private static readonly List<string> _expectedHeaders =
@@ -63,7 +63,7 @@ public class Scraper
             }
         );
         // html return will be in encoded form
-        return result; //HttpUtility.HtmlDecode(result);
+        return HttpUtility.HtmlDecode(result);
     }
 
     private static Dictionary<string, string> GetHttpClientHeaders()

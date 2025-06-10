@@ -1,14 +1,14 @@
 namespace InfoTrackProject;
 
-public class GoogleResultsScraperService
+public class GoogleResultsScraperService : IGoogleResultsScraperService
 {
-    private readonly Scraper _scraper;
-    private readonly GoogleSearchPageInfoExtractor _pageInfoExtractor;
+    private readonly IScraper _scraper;
+    private readonly IGoogleSearchPageInfoExtractor _pageInfoExtractor;
 
-    public GoogleResultsScraperService()
+    public GoogleResultsScraperService(IScraper scraper, IGoogleSearchPageInfoExtractor pageInfoExtractor)
     {
-        _scraper = new Scraper();
-        _pageInfoExtractor = new GoogleSearchPageInfoExtractor();
+        _scraper = scraper;
+        _pageInfoExtractor = pageInfoExtractor;
     }
 
     public IList<int> GetIndicesOfTheTarget(string query, string targetUrl)

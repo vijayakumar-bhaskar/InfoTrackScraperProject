@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace InfoTrackProject;
 
-public class GoogleSearchPageInfoExtractor
+public class GoogleSearchPageInfoExtractor : IGoogleSearchPageInfoExtractor
 {
     public List<string> GetResultUrls(string pageHtml)
     {
